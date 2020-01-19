@@ -1,22 +1,40 @@
 import { combineReducers } from 'redux';
+import undoable from 'redux-undo'
 import { VisibilityFilters } from './action';
+
+
+const todo = (state, action) => {
+  switch (action.type) {
+    case 'ADD_TODO':
+      return {
+        id: action.id,
+        text: action.text,
+        completed: false,
+      }
+    case 'TOGGLE_TODO':
+      if (state.id !== action.id) {
+        return state
+      }
+
+      return {
+        ...state,
+        completed: !state.completed
+      }
+    default:
+      return state
+  }
+}
 
 const todos = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
       return [
         ...state,
-        {
-          id: action.id,
-          text: action.text,
-          completed: false,
-        }
+        todo(undefined, action)
       ]
     case 'TOGGLE_TODO':
-      return state.map(todo =>
-        (todo.id === action.id)
-          ? {...todo, completed: !todo.completed}
-          : todo
+      return state.map(t =>
+        todo(t, action)
       )
     default:
       return state
@@ -32,7 +50,9 @@ const visibilityFilter = (state = VisibilityFilters.SHOW_ALL, action) => {
   }
 }
 
+const undoableTodos = undoable(todos)
+
 export default combineReducers({
-  todos,
+  todos: undoableTodos,
   visibilityFilter,
 })

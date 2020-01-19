@@ -8551,6 +8551,11 @@ redent@^3.0.0:
     indent-string "^4.0.0"
     strip-indent "^3.0.0"
 
+redux-undo@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npm.taobao.org/redux-undo/download/redux-undo-1.0.0.tgz#7688f0ae3874e0da35077de4fb1753c5d2e66a7a"
+  integrity sha1-dojwrjh04No1B33k+xdTxdLmano=
+
 redux@^4.0.5:
   version "4.0.5"
   resolved "https://registry.npm.taobao.org/redux/download/redux-4.0.5.tgz#4db5de5816e17891de8a80c424232d06f051d93f"
