@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './containers/Header';
-import MainSection from './components/MainSection';
+import MainSection from './containers/MainSection';
 
 function App() {
   return (

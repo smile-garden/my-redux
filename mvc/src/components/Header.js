@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TodoTextInput from './TodoTextInput';
 
-const Header = ({ addTodo}) => (
+const Header = ({ addTodo }) => (
   <header className="header">
     <h1>todos</h1>
     <TodoTextInput
@@ -10,6 +10,7 @@ const Header = ({ addTodo}) => (
       onSave={(text) => {
         if (text.length !== 0) {
           // something
+          console.log(text);
           addTodo(text);
         }
       }}
