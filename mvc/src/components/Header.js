@@ -9,8 +9,6 @@ const Header = ({ addTodo }) => (
       newTodo
       onSave={(text) => {
         if (text.length !== 0) {
-          // something
-          console.log(text);
           addTodo(text);
         }
       }}
